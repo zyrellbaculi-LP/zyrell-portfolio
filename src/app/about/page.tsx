@@ -15,27 +15,27 @@ const disciplines = [
 const software = [
   {
     name: "PREMIERE PRO",
-    icon: "/adobe/premiere-pro.svg",
+    icon: "/adobe/Pr.svg",
   },
   {
     name: "AFTER EFFECTS",
-    icon: "/adobe/after-effects.svg",
+    icon: "/adobe/Ae.svg",
   },
   {
     name: "PHOTOSHOP",
-    icon: "/adobe/photoshop.svg",
+    icon: "/adobe/Ps.svg",
   },
   {
     name: "LIGHTROOM CLASSIC",
-    icon: "/adobe/lightroom-classic.svg",
+    icon: "/adobe/LrC.svg",
   },
   {
     name: "MEDIA ENCODER",
-    icon: "/adobe/media-encoder.svg",
+    icon: "/adobe/Me.svg",
   },
   {
     name: "ILLUSTRATOR",
-    icon: "/adobe/illustrator.svg",
+    icon: "/adobe/Ai.svg",
   },
 ];
 
@@ -93,7 +93,10 @@ export default function AboutPage() {
     <main className="h-screen overflow-hidden bg-[#F8F8F5] lg:pl-[270px]">
       <section className="relative flex h-full flex-col overflow-hidden">
 
-        {/* Background Profile Image */}
+        {/* ========================================================= */}
+        {/* BACKGROUND PROFILE IMAGE                                  */}
+        {/* ========================================================= */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -107,27 +110,30 @@ export default function AboutPage() {
             duration: 1.2,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="pointer-events-none absolute right-0 top-0 z-0 h-[78%] w-[60%] overflow-hidden"
+          className="pointer-events-none absolute right-0 top-0 z-0 h-[82%] w-[62%] overflow-hidden"
         >
           <Image
             src="/profile.jpg"
             alt=""
             fill
-            className="object-cover object-center grayscale opacity-[0.16]"
-            sizes="60vw"
+            className="object-cover object-center grayscale opacity-[0.24]"
+            sizes="62vw"
           />
 
           {/* Left fade */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F8F8F5] via-[#F8F8F5]/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F8F8F5] via-[#F8F8F5]/25 to-transparent" />
 
           {/* Bottom fade */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#F8F8F5]" />
 
-          {/* Slight overall wash */}
-          <div className="absolute inset-0 bg-[#F8F8F5]/10" />
+          {/* Very light overall wash */}
+          <div className="absolute inset-0 bg-[#F8F8F5]/5" />
         </motion.div>
 
-        {/* Japanese background element */}
+        {/* ========================================================= */}
+        {/* JAPANESE BACKGROUND                                       */}
+        {/* ========================================================= */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -148,7 +154,10 @@ export default function AboutPage() {
           私
         </motion.div>
 
-        {/* Header */}
+        {/* ========================================================= */}
+        {/* HEADER                                                    */}
+        {/* ========================================================= */}
+
         <header className="relative z-10 shrink-0 px-8 pb-0 pt-10 md:px-12 lg:px-16">
 
           <div className="flex items-end justify-between gap-6">
@@ -194,17 +203,31 @@ export default function AboutPage() {
                 duration: 0.55,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group mb-1 flex shrink-0 items-center gap-3 border border-[#151516]/15 px-4 py-2.5 text-[8px] font-semibold tracking-[0.16em] text-[#151516]/55 transition-all duration-300 hover:border-[#B82134] hover:text-[#B82134]"
+              className="
+                mb-1
+                shrink-0
+                border
+                border-[#151516]/15
+                px-3
+                py-2
+                text-[7px]
+                font-semibold
+                tracking-[0.18em]
+                text-[#151516]/50
+                transition-all
+                duration-400
+                hover:border-[#B82134]
+                hover:bg-[#B82134]/[0.025]
+                hover:text-[#B82134]
+                hover:shadow-[0_0_25px_rgba(184,33,52,0.18)]
+              "
             >
-              <span>CV × RESUME</span>
-
-              <span className="text-sm font-light leading-none transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
+              CV × RESUME
             </motion.button>
 
           </div>
 
+          {/* Divider */}
           <motion.div
             initial={{
               scaleX: 0,
@@ -227,12 +250,18 @@ export default function AboutPage() {
 
         </header>
 
-        {/* Scrollable Content */}
+        {/* ========================================================= */}
+        {/* SCROLLABLE CONTENT                                        */}
+        {/* ========================================================= */}
+
         <section className="custom-scrollbar relative z-10 min-h-0 flex-1 overflow-y-auto px-8 py-10 md:px-12 lg:px-16">
 
           <div className="max-w-5xl">
 
-            {/* Introduction */}
+            {/* ===================================================== */}
+            {/* INTRODUCTION                                          */}
+            {/* ===================================================== */}
+
             <div className="grid gap-10 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr]">
 
               {/* Profile Image */}
@@ -270,6 +299,7 @@ export default function AboutPage() {
 
                     <div className="mt-3 h-px w-8 bg-[#B82134]" />
                   </div>
+
                 </div>
               </motion.div>
 
@@ -315,7 +345,10 @@ export default function AboutPage() {
 
             </div>
 
-            {/* Disciplines */}
+            {/* ===================================================== */}
+            {/* DISCIPLINES                                           */}
+            {/* ===================================================== */}
+
             <motion.section
               initial={{
                 opacity: 0,
@@ -375,7 +408,10 @@ export default function AboutPage() {
               </div>
             </motion.section>
 
-            {/* Approach */}
+            {/* ===================================================== */}
+            {/* APPROACH                                               */}
+            {/* ===================================================== */}
+
             <motion.section
               initial={{
                 opacity: 0,
@@ -422,7 +458,10 @@ export default function AboutPage() {
               </div>
             </motion.section>
 
-            {/* Software */}
+            {/* ===================================================== */}
+            {/* SOFTWARE                                               */}
+            {/* ===================================================== */}
+
             <motion.section
               initial={{
                 opacity: 0,
@@ -452,6 +491,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="grid flex-1 grid-cols-2 gap-3 sm:grid-cols-3 md:max-w-xl">
+
                   {software.map((tool, index) => (
                     <motion.div
                       key={tool.name}
@@ -470,6 +510,7 @@ export default function AboutPage() {
                       }}
                       className="group flex items-center gap-3 border border-[#151516]/15 px-3 py-3 transition-all duration-300 hover:border-[#B82134]/50"
                     >
+
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center transition-transform duration-300 group-hover:scale-105">
                         <Image
                           src={tool.icon}
@@ -489,8 +530,10 @@ export default function AboutPage() {
                           ADOBE
                         </p>
                       </div>
+
                     </motion.div>
                   ))}
+
                 </div>
 
               </div>
@@ -500,9 +543,19 @@ export default function AboutPage() {
 
         </section>
 
-        {/* CV / Resume Modal */}
+        {/* ========================================================= */}
+        {/* CV / RESUME MODAL                                         */}
+        {/* ========================================================= */}
+
         {resumeModalOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#151516]/45 px-6 backdrop-blur-[4px]">
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#151516]/40 px-5 backdrop-blur-[5px]"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) {
+                setResumeModalOpen(false);
+              }
+            }}
+          >
 
             <motion.div
               initial={{
@@ -519,11 +572,28 @@ export default function AboutPage() {
                 duration: 0.35,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="relative w-full max-w-xl bg-[#F8F8F5] p-7 md:p-9"
+              className="
+                relative
+                w-full
+                max-w-2xl
+                overflow-hidden
+                border
+                border-[#151516]/10
+                bg-[#F8F8F5]/95
+                p-7
+                shadow-[0_20px_80px_rgba(21,21,22,0.18)]
+                backdrop-blur-xl
+                md:p-10
+              "
             >
 
+              {/* Modal Japanese Background */}
+              <div className="pointer-events-none absolute -right-8 -top-10 text-[140px] font-light leading-none tracking-[-0.08em] text-[#151516]/[0.025]">
+                書類
+              </div>
+
               {/* Modal Header */}
-              <div className="flex items-start justify-between">
+              <div className="relative z-10 flex items-start justify-between">
 
                 <div>
                   <p className="text-[8px] font-semibold tracking-[0.22em] text-[#151516]/40">
@@ -533,12 +603,24 @@ export default function AboutPage() {
                   <h2 className="mt-2 text-xl font-bold tracking-[-0.02em] text-[#151516]">
                     CV × RESUME
                   </h2>
+
+                  <p className="mt-2 text-[8px] leading-5 tracking-[0.05em] text-[#151516]/35">
+                    Select one or both documents.
+                  </p>
                 </div>
 
                 <button
                   type="button"
                   onClick={() => setResumeModalOpen(false)}
-                  className="text-xl font-light leading-none text-[#151516]/35 transition-colors duration-300 hover:text-[#B82134]"
+                  className="
+                    text-xl
+                    font-light
+                    leading-none
+                    text-[#151516]/30
+                    transition-colors
+                    duration-300
+                    hover:text-[#B82134]
+                  "
                   aria-label="Close modal"
                 >
                   ×
@@ -546,7 +628,8 @@ export default function AboutPage() {
 
               </div>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {/* Documents */}
+              <div className="relative z-10 mt-8 grid gap-3 sm:grid-cols-2">
 
                 {documents.map((document) => {
                   const selected = selectedDocuments.includes(document.id);
@@ -556,24 +639,67 @@ export default function AboutPage() {
                       key={document.id}
                       type="button"
                       onClick={() => toggleDocument(document.id)}
-                      className={`group relative flex items-center gap-4 border p-4 text-left transition-all duration-300 ${
-                        selected
-                          ? "border-[#B82134] bg-[#B82134]/[0.04]"
-                          : "border-[#151516]/15 hover:border-[#B82134]/50"
-                      }`}
+                      className={`
+                        group
+                        relative
+                        flex
+                        items-center
+                        gap-5
+                        overflow-hidden
+                        border
+                        p-5
+                        text-left
+                        transition-all
+                        duration-500
+                        ${
+                          selected
+                            ? "border-[#B82134] bg-[#B82134]/[0.035]"
+                            : "border-[#151516]/10 hover:border-[#B82134]/50"
+                        }
+                      `}
                     >
 
-                      {/* Document icon */}
-                      <div
-                        className={`flex h-12 w-10 shrink-0 items-center justify-center border text-[9px] font-bold tracking-[0.08em] transition-all duration-300 ${
-                          selected
-                            ? "border-[#B82134] bg-[#B82134] text-[#F8F8F5]"
-                            : "border-[#151516]/15 bg-[#151516] text-[#F8F8F5]"
-                        }`}
-                      >
-                        {document.short}
+                      {/* File Icon */}
+                      <div className="relative h-14 w-12 shrink-0">
+
+                        <Image
+                          src="/icons/file.svg"
+                          alt="File"
+                          fill
+                          className={`
+                            object-contain
+                            transition-all
+                            duration-300
+                            ${
+                              selected
+                                ? "opacity-100"
+                                : "opacity-65 group-hover:opacity-100"
+                            }
+                          `}
+                        />
+
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span
+                            className={`
+                              text-[7px]
+                              font-bold
+                              tracking-[0.08em]
+                              transition-colors
+                              duration-300
+                              ${
+                                selected
+                                  ? "text-[#B82134]"
+                                  : "text-[#151516]/55"
+                              }
+                            `}
+                          >
+                            {document.short}
+                          </span>
+                        </div>
+
                       </div>
 
+                      {/* Document Information */}
                       <div>
                         <p className="text-[9px] font-semibold tracking-[0.08em] text-[#151516]/75">
                           {document.title}
@@ -584,13 +710,42 @@ export default function AboutPage() {
                         </p>
                       </div>
 
-                      {/* Selection indicator */}
+                      {/* Selection Indicator */}
                       <span
-                        className={`absolute right-3 top-3 h-2 w-2 rounded-full border transition-all duration-300 ${
-                          selected
-                            ? "border-[#B82134] bg-[#B82134]"
-                            : "border-[#151516]/20"
-                        }`}
+                        className={`
+                          absolute
+                          right-4
+                          top-4
+                          h-2
+                          w-2
+                          rounded-full
+                          border
+                          transition-all
+                          duration-300
+                          ${
+                            selected
+                              ? "border-[#B82134] bg-[#B82134]"
+                              : "border-[#151516]/15"
+                          }
+                        `}
+                      />
+
+                      {/* Bottom Hover / Selection Line */}
+                      <div
+                        className={`
+                          absolute
+                          bottom-0
+                          left-0
+                          h-[2px]
+                          bg-[#B82134]
+                          transition-all
+                          duration-500
+                          ${
+                            selected
+                              ? "w-full"
+                              : "w-0 group-hover:w-full"
+                          }
+                        `}
                       />
 
                     </button>
@@ -599,10 +754,10 @@ export default function AboutPage() {
 
               </div>
 
-              {/* Modal Actions */}
-              <div className="mt-8 flex items-center justify-between border-t border-[#151516]/10 pt-6">
+              {/* Modal Footer */}
+              <div className="relative z-10 mt-8 flex flex-col gap-5 border-t border-[#151516]/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
 
-                <p className="text-[8px] tracking-[0.12em] text-[#151516]/35">
+                <p className="text-[7px] tracking-[0.14em] text-[#151516]/30">
                   {selectedFiles.length === 0
                     ? "SELECT A DOCUMENT"
                     : `${selectedFiles.length} DOCUMENT${
@@ -612,20 +767,52 @@ export default function AboutPage() {
 
                 <div className="flex gap-2">
 
+                  {/* View */}
                   <button
                     type="button"
                     onClick={handleView}
                     disabled={selectedFiles.length === 0}
-                    className="border border-[#151516]/20 px-5 py-3 text-[8px] font-semibold tracking-[0.16em] text-[#151516]/65 transition-all duration-300 hover:border-[#B82134] hover:text-[#B82134] disabled:cursor-not-allowed disabled:opacity-25"
+                    className="
+                      border
+                      border-[#151516]/15
+                      px-5
+                      py-3
+                      text-[7px]
+                      font-semibold
+                      tracking-[0.18em]
+                      text-[#151516]/60
+                      transition-all
+                      duration-300
+                      hover:border-[#B82134]
+                      hover:text-[#B82134]
+                      hover:shadow-[0_0_20px_rgba(184,33,52,0.10)]
+                      disabled:cursor-not-allowed
+                      disabled:opacity-20
+                    "
                   >
                     VIEW
                   </button>
 
+                  {/* Download */}
                   <button
                     type="button"
                     onClick={handleDownload}
                     disabled={selectedFiles.length === 0}
-                    className="bg-[#151516] px-5 py-3 text-[8px] font-semibold tracking-[0.16em] text-[#F8F8F5] transition-all duration-300 hover:bg-[#B82134] disabled:cursor-not-allowed disabled:opacity-25"
+                    className="
+                      bg-[#151516]
+                      px-5
+                      py-3
+                      text-[7px]
+                      font-semibold
+                      tracking-[0.18em]
+                      text-[#F8F8F5]
+                      transition-all
+                      duration-300
+                      hover:bg-[#B82134]
+                      hover:shadow-[0_0_20px_rgba(184,33,52,0.15)]
+                      disabled:cursor-not-allowed
+                      disabled:opacity-20
+                    "
                   >
                     DOWNLOAD
                   </button>
@@ -635,6 +822,7 @@ export default function AboutPage() {
               </div>
 
             </motion.div>
+
           </div>
         )}
 

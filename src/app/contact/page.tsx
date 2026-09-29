@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const services = [
@@ -9,6 +10,8 @@ const services = [
   "GRAPHICS DESIGN",
 ];
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export default function ContactPage() {
   const [selectedService, setSelectedService] = useState("");
 
@@ -17,47 +20,157 @@ export default function ContactPage() {
       <section className="relative flex h-full flex-col overflow-hidden">
 
         {/* Japanese background element */}
-        <div className="pointer-events-none absolute -right-16 top-20 z-0 text-[170px] font-light leading-none tracking-[-0.08em] text-[#151516] opacity-[0.025]">
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.96,
+            x: 20,
+          }}
+          animate={{
+            opacity: 0.025,
+            scale: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 1.1,
+            ease,
+          }}
+          className="pointer-events-none absolute -right-16 top-20 z-0 text-[170px] font-light leading-none tracking-[-0.08em] text-[#151516]"
+        >
           連絡
-        </div>
+        </motion.div>
 
         {/* Fixed header */}
         <header className="relative z-10 shrink-0 px-8 pb-6 pt-8 md:px-12 lg:px-16">
-          <p className="text-[9px] font-medium tracking-[0.3em] text-[#151516]/40">
-            PORTFOLIO / 006
-          </p>
+          <div className="flex flex-col">
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 18,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.65,
+                ease,
+              }}
+            >
+              <p className="text-[9px] font-medium tracking-[0.3em] text-[#151516]/40">
+                PORTFOLIO / 006
+              </p>
 
-          <h1 className="mt-3 text-4xl font-bold tracking-[-0.04em] text-[#B82134] md:text-5xl">
-            CONTACT ME
-          </h1>
+              <h1 className="mt-3 text-4xl font-bold tracking-[-0.04em] text-[#B82134] md:text-5xl">
+                CONTACT ME
+              </h1>
+            </motion.div>
+
+            {/* Divider */}
+            <motion.div
+              initial={{
+                scaleX: 0,
+                opacity: 0,
+              }}
+              animate={{
+                scaleX: 1,
+                opacity: 1,
+              }}
+              transition={{
+                delay: 0.25,
+                duration: 0.65,
+                ease: [0.77, 0, 0.175, 1],
+              }}
+              style={{
+                transformOrigin: "left",
+              }}
+              className="mt-8 h-px w-full bg-[#151516]/10"
+            />
+          </div>
         </header>
-
-        <div className="relative z-10 h-px w-full bg-[#151516]/10" />
 
         {/* Scrollable content */}
         <section className="custom-scrollbar relative z-10 min-h-0 flex-1 overflow-y-auto px-8 py-8 md:px-12 lg:px-16">
-
           <div className="max-w-3xl">
 
             {/* Intro */}
-            <div className="mb-8">
-              <p className="max-w-2xl text-[11px] font-medium leading-5 tracking-[0.04em] text-[#151516]/70">
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 0.35,
+                duration: 0.65,
+                ease,
+              }}
+              className="mb-8"
+            >
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  y: 10,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.42,
+                  duration: 0.5,
+                  ease,
+                }}
+                className="max-w-2xl text-[11px] font-medium leading-5 tracking-[0.04em] text-[#151516]/70"
+              >
                 Have a project in mind? Tell me a little about what you need
                 and I&apos;ll get back to you.
-              </p>
+              </motion.p>
 
-              <p className="mt-3 max-w-xl text-[9px] font-normal leading-5 tracking-[0.04em] text-[#151516]/50">
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  y: 10,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.5,
+                  duration: 0.5,
+                  ease,
+                }}
+                className="mt-3 max-w-xl text-[9px] font-normal leading-5 tracking-[0.04em] text-[#151516]/50"
+              >
                 Whether it&apos;s video editing, photography, motion graphics,
                 or graphic design, feel free to get in touch.
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
 
             {/* Contact form */}
             <form className="space-y-7">
 
               {/* Name + Email */}
-              <div className="grid gap-6 md:grid-cols-2">
-
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 18,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.55,
+                  duration: 0.6,
+                  ease,
+                }}
+                className="grid gap-6 md:grid-cols-2"
+              >
                 {/* Full name */}
                 <div>
                   <label
@@ -93,24 +206,53 @@ export default function ContactPage() {
                     className="w-full border-b border-[#151516]/20 bg-transparent pb-2.5 text-[11px] font-medium tracking-[0.03em] text-[#151516] outline-none placeholder:text-[#151516]/40 transition-colors duration-300 focus:border-[#B82134]"
                   />
                 </div>
-
-              </div>
+              </motion.div>
 
               {/* Services */}
-              <div>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 18,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.65,
+                  duration: 0.6,
+                  ease,
+                }}
+              >
                 <label className="mb-3 block text-[8px] font-semibold tracking-[0.18em] text-[#151516]/65">
                   SERVICE
                 </label>
 
                 <div className="flex flex-wrap gap-2">
-                  {services.map((service) => {
+                  {services.map((service, index) => {
                     const isSelected = selectedService === service;
 
                     return (
-                      <button
+                      <motion.button
                         key={service}
                         type="button"
                         onClick={() => setSelectedService(service)}
+                        initial={{
+                          opacity: 0,
+                          y: 10,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          delay: 0.72 + index * 0.06,
+                          duration: 0.45,
+                          ease,
+                        }}
+                        whileTap={{
+                          scale: 0.97,
+                        }}
                         className={`
                           border
                           px-4
@@ -128,14 +270,28 @@ export default function ContactPage() {
                         `}
                       >
                         {service}
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Project description */}
-              <div>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 18,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.88,
+                  duration: 0.6,
+                  ease,
+                }}
+              >
                 <label
                   htmlFor="description"
                   className="mb-2 block text-[8px] font-semibold tracking-[0.18em] text-[#151516]/65"
@@ -150,62 +306,109 @@ export default function ContactPage() {
                   placeholder="Tell me about your project..."
                   className="w-full resize-none border border-[#151516]/20 bg-transparent p-3.5 text-[11px] font-medium leading-5 tracking-[0.03em] text-[#151516] outline-none placeholder:text-[#151516]/40 transition-colors duration-300 focus:border-[#B82134]"
                 />
-              </div>
+              </motion.div>
 
               {/* Send button */}
-              <div>
-                <button
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 15,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.98,
+                  duration: 0.55,
+                  ease,
+                }}
+              >
+                <motion.button
                   type="submit"
-                  className="group flex items-center gap-4 bg-[#151516] px-6 py-3.5 text-[8px] font-semibold tracking-[0.18em] text-[#F8F8F5] transition-all duration-300 hover:bg-[#B82134]"
+                  whileTap={{
+                    scale: 0.98,
+                  }}
+                  className="group flex items-center gap-4 bg-[#151516] px-6 py-3.5 text-[8px] font-semibold tracking-[0.18em] text-[#F8F8F5] transition-all duration-300 hover:bg-[#B82134] hover:shadow-[0_0_25px_rgba(184,33,52,0.18)]"
                 >
                   <span>SEND MESSAGE</span>
 
                   <span className="text-base font-light leading-none transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
-                </button>
-              </div>
-
+                </motion.button>
+              </motion.div>
             </form>
 
             {/* Social links */}
-            <div className="mt-10 border-t border-[#151516]/10 pt-6 pb-8">
-              <p className="mb-4 text-[8px] font-semibold tracking-[0.2em] text-[#151516]/40">
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 1.08,
+                duration: 0.6,
+                ease,
+              }}
+              className="mt-10 border-t border-[#151516]/10 pt-6 pb-8"
+            >
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  x: -10,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  delay: 1.15,
+                  duration: 0.45,
+                  ease,
+                }}
+                className="mb-4 text-[8px] font-semibold tracking-[0.2em] text-[#151516]/40"
+              >
                 ELSEWHERE
-              </p>
+              </motion.p>
 
               <div className="flex flex-wrap gap-x-8 gap-y-3">
-
-                <a
-                  href="#"
-                  className="text-[9px] font-medium tracking-[0.16em] text-[#151516]/55 transition-colors duration-300 hover:text-[#B82134]"
-                >
-                  FACEBOOK
-                </a>
-
-                <a
-                  href="#"
-                  className="text-[9px] font-medium tracking-[0.16em] text-[#151516]/55 transition-colors duration-300 hover:text-[#B82134]"
-                >
-                  LINKEDIN
-                </a>
-
-                <a
-                  href="#"
-                  className="text-[9px] font-medium tracking-[0.16em] text-[#151516]/55 transition-colors duration-300 hover:text-[#B82134]"
-                >
-                  BEHANCE
-                </a>
-
-                <a
-                  href="mailto:your@email.com"
-                  className="text-[9px] font-medium tracking-[0.16em] text-[#151516]/55 transition-colors duration-300 hover:text-[#B82134]"
-                >
-                  EMAIL
-                </a>
-
+                {[
+                  "FACEBOOK",
+                  "LINKEDIN",
+                  "BEHANCE",
+                  "EMAIL",
+                ].map((social, index) => (
+                  <motion.a
+                    key={social}
+                    href={social === "EMAIL" ? "mailto:your@email.com" : "#"}
+                    initial={{
+                      opacity: 0,
+                      y: 8,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      delay: 1.2 + index * 0.07,
+                      duration: 0.4,
+                      ease,
+                    }}
+                    whileHover={{
+                      y: -2,
+                    }}
+                    className="text-[9px] font-medium tracking-[0.16em] text-[#151516]/55 transition-colors duration-300 hover:text-[#B82134]"
+                  >
+                    {social}
+                  </motion.a>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </section>

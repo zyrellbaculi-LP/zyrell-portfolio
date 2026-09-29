@@ -1,5 +1,7 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const albums = [
   {
@@ -53,15 +55,48 @@ export default function VideographyPage() {
   return (
     <main className="h-screen overflow-hidden bg-[#F8F8F5] lg:pl-[270px]">
       <section className="relative flex h-full flex-col overflow-hidden">
+
         {/* Japanese background element */}
-        <div className="pointer-events-none absolute -right-10 top-24 z-0 text-[170px] font-light leading-none tracking-[-0.08em] text-[#151516] opacity-[0.025]">
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.96,
+            x: 20,
+          }}
+          animate={{
+            opacity: 0.025,
+            scale: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 1.1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="pointer-events-none absolute -right-10 top-24 z-0 text-[170px] font-light leading-none tracking-[-0.08em] text-[#151516]"
+        >
           映像
-        </div>
+        </motion.div>
 
         {/* Fixed Header Area */}
         <header className="relative z-10 shrink-0 px-8 pb-0 pt-10 md:px-12 lg:px-16">
+
           <div className="flex items-end justify-between">
-            <div>
+
+            {/* Left header */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 18,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
               <p className="text-[9px] tracking-[0.3em] text-[#151516]/30">
                 PORTFOLIO / 002
               </p>
@@ -69,9 +104,25 @@ export default function VideographyPage() {
               <h1 className="mt-3 text-4xl font-bold tracking-[-0.04em] text-[#B82134] md:text-5xl">
                 VIDEOGRAPHY
               </h1>
-            </div>
+            </motion.div>
 
-            <div className="hidden text-right md:block">
+            {/* Right header */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: 15,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+              }}
+              transition={{
+                delay: 0.18,
+                duration: 0.55,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="hidden text-right md:block"
+            >
               <p className="text-[8px] tracking-[0.2em] text-[#151516]/30">
                 MOVING IMAGE
               </p>
@@ -79,14 +130,43 @@ export default function VideographyPage() {
               <p className="mt-1 text-[8px] tracking-[0.2em] text-[#151516]/20">
                 PRODUCTION / CINEMATOGRAPHY
               </p>
-            </div>
+            </motion.div>
+
           </div>
 
           {/* Category Tabs */}
-          <nav className="mt-8 flex gap-5 overflow-x-auto pb-3">
+          <motion.nav
+            initial={{
+              opacity: 0,
+              y: 8,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.25,
+              duration: 0.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="mt-8 flex gap-5 overflow-x-auto pb-3"
+          >
             {categories.map((category, index) => (
-              <button
+              <motion.button
                 key={category}
+                initial={{
+                  opacity: 0,
+                  y: 6,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.28 + index * 0.055,
+                  duration: 0.4,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className={`
                   shrink-0
                   text-[8px]
@@ -101,25 +181,61 @@ export default function VideographyPage() {
                 `}
               >
                 {category}
-              </button>
+              </motion.button>
             ))}
-          </nav>
+          </motion.nav>
 
           {/* Divider */}
-          <div className="h-px w-full bg-[#151516]/10" />
+          <motion.div
+            initial={{
+              scaleX: 0,
+              opacity: 0,
+            }}
+            animate={{
+              scaleX: 1,
+              opacity: 1,
+            }}
+            transition={{
+              delay: 0.48,
+              duration: 0.65,
+              ease: [0.77, 0, 0.175, 1],
+            }}
+            style={{
+              transformOrigin: "left",
+            }}
+            className="h-px w-full bg-[#151516]/10"
+          />
+
         </header>
 
         {/* Scrollable Album Area */}
         <section className="custom-scrollbar relative z-10 min-h-0 flex-1 overflow-y-auto px-8 py-10 md:px-12 lg:px-16">
+
           <div className="grid gap-x-6 gap-y-12 md:grid-cols-2 xl:grid-cols-3">
-            {albums.map((album) => (
-              <Link
-                href={`/videography/${album.title
-                  .toLowerCase()
-                  .replace(/\s+/g, "-")}`}
+
+            {albums.map((album, index) => (
+              <motion.div
                 key={album.number}
-                className="group block cursor-pointer"
+                initial={{
+                  opacity: 0,
+                  y: 24,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.4 + index * 0.09,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               >
+                <Link
+                  href={`/videography/${album.title
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}`}
+                  className="group block cursor-pointer"
+                >
                   {/* Album Frame */}
                   <div className="relative aspect-video overflow-hidden bg-[#151516]">
 
@@ -128,7 +244,7 @@ export default function VideographyPage() {
                       {album.number}
                     </div>
 
-                   {/* Album information */}
+                    {/* Album information */}
                     <div className="absolute inset-x-0 bottom-0 z-10 p-5">
                       <h2 className="text-sm font-bold tracking-[0.03em] text-[#F8F8F5]">
                         {album.title}
@@ -142,17 +258,21 @@ export default function VideographyPage() {
                         {album.year}
                       </p>
                     </div>
+
                     {/* Dark gradient behind album information */}
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#151516] via-[#151516]/60 to-transparent" />
 
                     {/* Hover line */}
                     <div className="absolute bottom-0 left-0 z-20 h-[2px] w-0 bg-[#B82134] transition-all duration-500 group-hover:w-full" />
-                  </div>
 
+                  </div>
                 </Link>
+              </motion.div>
             ))}
+
           </div>
         </section>
+
       </section>
     </main>
   );

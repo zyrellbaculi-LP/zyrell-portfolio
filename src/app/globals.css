@@ -52,3 +52,13 @@ button {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #B82134;
 }
+
+@keyframes adobeCarousel {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}

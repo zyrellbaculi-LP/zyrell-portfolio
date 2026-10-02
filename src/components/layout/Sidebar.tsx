@@ -17,6 +17,15 @@ const secondaryNavigation = [
   { label: "ABOUT", href: "/about" },
 ];
 
+const adobeTools = [
+  { name: "Premiere Pro", icon: "/adobe/Pr.svg" },
+  { name: "After Effects", icon: "/adobe/Ae.svg" },
+  { name: "Photoshop", icon: "/adobe/Ps.svg" },
+  { name: "Lightroom Classic", icon: "/adobe/LrC.svg" },
+  { name: "Media Encoder", icon: "/adobe/Me.svg" },
+  { name: "Illustrator", icon: "/adobe/Ai.svg" },
+];
+
 export default function Sidebar() {
   const pathname = usePathname();
 
@@ -65,7 +74,6 @@ export default function Sidebar() {
 
           {/* Identity over image */}
           <div className="absolute bottom-7 left-8 z-10">
-
             <h1 className="text-[15px] font-bold tracking-[0.14em] text-[#F8F8F5]">
               ZYRELL BACULI
             </h1>
@@ -75,14 +83,11 @@ export default function Sidebar() {
             </p>
 
             <div className="mt-5 h-px w-10 bg-[#B82134]" />
-
           </div>
-
         </div>
 
         {/* Main Navigation */}
         <nav className="relative z-10 mt-10 flex flex-col gap-2">
-
           {mainNavigation.map((item, index) => {
             const active = isActive(item.href);
 
@@ -92,13 +97,10 @@ export default function Sidebar() {
                 href={item.href}
                 className="group relative flex items-center py-2.5"
               >
-
                 {/* Active / hover line */}
                 <span
                   className={`absolute left-0 top-1/2 h-px bg-[#B82134] transition-all duration-300 ${
-                    active
-                      ? "w-5"
-                      : "w-0 group-hover:w-5"
+                    active ? "w-5" : "w-0 group-hover:w-5"
                   }`}
                 />
 
@@ -128,16 +130,13 @@ export default function Sidebar() {
                 {active && (
                   <span className="absolute right-5 h-1 w-1 rounded-full bg-[#B82134]" />
                 )}
-
               </Link>
             );
           })}
-
         </nav>
 
         {/* Secondary Navigation */}
         <nav className="relative z-10 mt-10 flex flex-col gap-2 border-t border-[#F8F8F5]/[0.07] pt-6">
-
           {secondaryNavigation.map((item, index) => {
             const active = isActive(item.href);
 
@@ -147,13 +146,10 @@ export default function Sidebar() {
                 href={item.href}
                 className="group relative flex items-center py-2.5"
               >
-
                 {/* Active / hover line */}
                 <span
                   className={`absolute left-0 top-1/2 h-px bg-[#B82134] transition-all duration-300 ${
-                    active
-                      ? "w-5"
-                      : "w-0 group-hover:w-5"
+                    active ? "w-5" : "w-0 group-hover:w-5"
                   }`}
                 />
 
@@ -183,18 +179,50 @@ export default function Sidebar() {
                 {active && (
                   <span className="absolute right-5 h-1 w-1 rounded-full bg-[#B82134]" />
                 )}
-
               </Link>
             );
           })}
-
         </nav>
 
         {/* Bottom Brand Area */}
         <div className="relative z-10 mt-auto pt-6">
 
+          {/* Adobe Logo Carousel */}
+        <div className="relative mb-5 h-7 w-full overflow-hidden">
+
+          {/* Inner carousel viewport */}
+          <div className="mx-4 h-full overflow-hidden">
+
+            {/* Left fade */}
+            <div className="pointer-events-none absolute left-4 top-0 z-10 h-full w-2 bg-gradient-to-r from-[#151516] to-transparent" />
+
+            {/* Right fade */}
+            <div className="pointer-events-none absolute right-4 top-0 z-10 h-full w-2 bg-gradient-to-l from-[#151516] to-transparent" />
+
+            <div className="flex h-full w-max animate-[adobeCarousel_18s_linear_infinite] items-center">
+              {[...adobeTools, ...adobeTools].map((tool, index) => (
+                <div
+                  key={`${tool.name}-${index}`}
+                  className="mx-2 flex h-6 w-6 shrink-0 items-center justify-center opacity-75 transition-opacity duration-300 hover:opacity-100"
+                >
+                  <Image
+                    src={tool.icon}
+                    alt={tool.name}
+                    width={20}
+                    height={20}
+                    className="h-5 w-5 object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+
+          {/* Divider */}
           <div className="mb-5 h-px w-full bg-[#F8F8F5]/[0.07]" />
 
+          {/* Logo / Archive */}
           <div className="flex items-end justify-between">
 
             {/* Logo */}
@@ -220,7 +248,6 @@ export default function Sidebar() {
             </div>
 
           </div>
-
         </div>
 
       </div>

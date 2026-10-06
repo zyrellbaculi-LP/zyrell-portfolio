@@ -663,7 +663,7 @@ export default function AboutPage() {
                       <div className="relative h-14 w-12 shrink-0">
 
                         <Image
-                          src="/icons/file.svg"
+                          src="/file.svg"
                           alt="File"
                           fill
                           className={`
